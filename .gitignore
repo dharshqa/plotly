@@ -1,0 +1,6 @@
+
+#Cypress genereated files
+cypress/videos/*
+cypress/screenshots/*
+node_modules
+package-lock.json

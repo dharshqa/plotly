@@ -1,6 +1,6 @@
 import homepage from '../objects/homepage.js'
 
-describe('Homepage Test', () => {
+describe('Plotly Assesment', () => {
 
     beforeEach('Naviagte to Website', () => {
         cy.visit('/');
@@ -21,6 +21,10 @@ describe('Homepage Test', () => {
 
     it('Verify Product Button and Visual Review Button', () => {
        homepage.verifyVisualReviewButton();
+    })
+
+    it('(BONUS) Verify Test Analytic Button Border Color', () => {
+        homepage.verifyTestAnalyticButton();
     })
 
 })

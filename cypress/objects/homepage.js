@@ -9,6 +9,8 @@ class HomePage {
         cliboardNPM: 'npm install cypress --save-dev',
         visualReviewText: 'Visual Reviews',
         visualReviewURL: '/cloud/#visual_review',
+        smartOrchestration: 'Smart Orchestration',
+        smartOrchestrationURL: '/cloud/#smart_orchestration',
     }
 
     elements = {
@@ -20,6 +22,8 @@ class HomePage {
         productButton: () => cy.get('#dropdownProduct'),
         visualReviewButton: () => cy.get('[href="/cloud#visual_reviews"]>astro-slot>span'),
         smartOrchestrationButton: () => cy.get('[href="/cloud#smart_orchestration"]>astro-slot>span'),
+        testAnalytisSection: () => cy.get('#test_analytics'),
+        testAnalyticsButton: () => cy.get('[data-cy="product-app"]>div>div>[href="#test_analytics"]'),
     
     }
 
@@ -67,6 +71,21 @@ class HomePage {
 
         this.elements.visualReviewButton().eq(0).should('not.be.disabled').click({ force: true });
         cy.url().should('include', this.literals.visualReviewURL);
+    }
+
+    verifyTestAnalyticButton(){
+        this.elements.productButton().should('not.be.disabled').click();
+        this.elements.smartOrchestrationButton().invoke('text').then(text => {
+            const newText = text.replace(/\n/g, '').trim();
+            expect(newText).to.equal(this.literals.smartOrchestration);
+        })
+
+        this.elements.smartOrchestrationButton().should('not.be.disabled').click({ force: true });
+        cy.url().should('include', this.literals.smartOrchestrationURL);
+
+        this.elements.testAnalytisSection().scrollIntoView();
+
+        this.elements.testAnalyticsButton().should('have.css','border-color','rgb(163, 231, 203)');
     }
 
 }

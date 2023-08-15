@@ -4,7 +4,7 @@
 
 Clone the repo: git@github.com:dharshqa/plotly.git
 
-Run on terminal: npm ci / npm install
+Run on terminal: npm install
 
 ## How to run?
 

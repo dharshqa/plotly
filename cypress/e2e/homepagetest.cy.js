@@ -1,6 +1,6 @@
 import homepage from '../objects/homepage.js'
 
-describe('Plotly Assesment', () => {
+describe('Plotly Assessment', () => {
 
     beforeEach('Naviagte to Website', () => {
         cy.visit('/');
